@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Indian Teenager Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    
+    h1 {
+      color: #FF4500;
+    }
+    
+    button {
+      background-color: #FF4500;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    
+    .question {
+      margin: 30px auto;
+      max-width: 600px;
+    }
+    
+    .options {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .option {
+      background-color: #FF8C00;
+      color: white;
+      padding: 10px 20px;
+      font-size: 14px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+    
+    .option:hover {
+      background-color: #FF6347;
+    }
+    
+    #result {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Indian Teenager Game</h1>
+  <div class="question">
+    <p>Who is known as the "Missile Man of India"?</p>
+    <div class="options">
+      <button class="option">A. Dr. A.P.J. Abdul Kalam</button>
+      <button class="option">B. Dr. C.V. Raman</button>
+      <button class="option">C. Dr. Homi J. Bhabha</button>
+      <button class="option">D. Dr. Vikram Sarabhai</button>
+    </div>
+  </div>
+  <div id="result"></div>
+
+  <script>
+    var correctAnswer = "A. Dr. A.P.J. Abdul Kalam";
+    var resultDiv = document.getElementById("result");
+    var options = document.getElementsByClassName("option");
+  
+    function checkAnswer(selectedOption) {
+      var userAnswer = selectedOption.innerHTML;
+      if (userAnswer === correctAnswer) {
+        resultDiv.innerHTML = "Correct! You have identified the Missile Man of India.";
+        resultDiv.style.color = "green";
+      } else {
+        resultDiv.innerHTML = "Oops! That's incorrect. The correct answer is " + correctAnswer;
+        resultDiv.style.color = "red";
+      }
+    }
+  
+    for (var i = 0; i < options.length; i++) {
+      options[i].addEventListener("click", function() {
+        checkAnswer(this);
+      });
+    }
+  </script>
+</body>
+</html>
